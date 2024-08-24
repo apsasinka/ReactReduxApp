@@ -1,12 +1,20 @@
-import React from 'react';
+import React from "react";
 import "./index.less";
+import { useDispatch } from "react-redux";
+import { setCount } from "./reducers/reposReducer";
 
 const App = () => {
-  return (
-    <div className='app'>
-        Wasup ma homie?!
-    </div>
-  )
-}
+  const dispatch = useDispatch();
 
-export default App
+  const onCountClick = () => {
+    dispatch(setCount(5));
+  };
+
+  return (
+    <div className="app">
+      <button onClick={() => onCountClick()}>COUNT</button>
+    </div>
+  );
+};
+
+export default App;

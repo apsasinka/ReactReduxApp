@@ -13,6 +13,9 @@ module.exports = {
         new HTMLWebpackPlugin({template: './src/index.html'}),
         new CleanWebpackPlugin()
     ],
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },    
     devServer: {
         port: 3000,
         static: "./src"
