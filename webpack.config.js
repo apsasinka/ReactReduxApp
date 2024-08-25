@@ -33,6 +33,11 @@ module.exports = {
                 use: ["file-loader"]
             },
             {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                use: 'ts-loader'  // Используем ts-loader для обработки TypeScript
+            },
+            {
                 test: /\.m?tsx$/,
                 exclude: /node_modules/,
                 use: {

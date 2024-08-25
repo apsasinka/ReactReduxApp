@@ -1,8 +1,9 @@
-export interface NFTState {
+export interface SongState {
   items: {};
   isFetching: boolean;
 }
 
 export interface RootState {
-  nft: ReposState;
+  items: {};
+  isFetching: boolean;
 }

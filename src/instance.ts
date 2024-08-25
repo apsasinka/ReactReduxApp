@@ -1,5 +1,5 @@
 import axios from "axios";
-import qs from "qs"; // для правильного форматирования body
+import qs from "qs";
 
 const getSpotifyToken = async () => {
   const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;

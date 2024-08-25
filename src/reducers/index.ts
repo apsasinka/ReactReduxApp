@@ -3,6 +3,10 @@ import songReducer from "./songReducer";
 
 export const store = configureStore({
   reducer: {
-    repos: songReducer,
+    songs: songReducer,
   },
 });
+
+export type AppStore = typeof store;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];

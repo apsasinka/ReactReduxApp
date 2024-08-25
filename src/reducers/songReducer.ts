@@ -1,3 +1,4 @@
+import { SongState } from "./../types";
 const SET_SONG = "SET_SONG";
 
 const defaultState = {
@@ -5,9 +6,17 @@ const defaultState = {
   isFetching: true,
 };
 
-export default function songReducer(state = defaultState, action) {
+interface SongAction {
+  type: string;
+  payload: any[];
+}
+
+const songReducer = (
+  state: SongState = defaultState,
+  action: SongAction
+): SongState => {
   switch (action.type) {
-    case "SET_SONG":
+    case SET_SONG:
       return {
         ...state,
         items: action.payload,
@@ -15,6 +24,8 @@ export default function songReducer(state = defaultState, action) {
     default:
       return state;
   }
-}
+};
+
+export default songReducer;
 
 export const setSong = (song) => ({ type: SET_SONG, payload: song });

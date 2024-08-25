@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import "./main.less";
-import { useDispatch, useSelector } from "react-redux";
-import { NFTState } from "../../types";
-import Song from "../repo/Song";
+import Song from "../song/Song";
 import { getSong } from "../../actions/song";
+import { useAppDispatch, useAppSelector } from "../../reducers/hooks";
 
 const Main = () => {
-  const dispatch = useDispatch();
-  const nft = useSelector((state: NFTState) => state.items);
+  const dispatch = useAppDispatch();
+  const songs = useAppSelector((state) => state.songs.items);
 
   useEffect(() => {
     dispatch(getSong());
@@ -15,9 +14,9 @@ const Main = () => {
 
   return (
     <div>
-      {/* {nft.map((item) => (
-        <Nft key={item.id} item={item} />
-      ))} */}
+      {songs.map((item) => (
+        <Song key={item.id} item={item} />
+      ))}
     </div>
   );
 };
