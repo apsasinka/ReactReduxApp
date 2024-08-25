@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
     mode: 'development',
@@ -11,7 +12,8 @@ module.exports = {
     },
     plugins: [
         new HTMLWebpackPlugin({template: './src/index.html'}),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new Dotenv()
     ],
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx'],

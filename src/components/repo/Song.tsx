@@ -1,7 +1,7 @@
 import React from "react";
 import "./nft.less";
 
-const Nft = (props) => {
+const Song = (props) => {
   const nft = props.nft;
 
   return (
@@ -16,4 +16,4 @@ const Nft = (props) => {
   );
 };
 
-export default Nft;
+export default Song;

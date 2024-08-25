@@ -1,13 +1,13 @@
-const SET_NFT = "SET_NFT";
+const SET_SONG = "SET_SONG";
 
 const defaultState = {
   items: [],
   isFetching: true,
 };
 
-export default function nftReducer(state = defaultState, action) {
+export default function songReducer(state = defaultState, action) {
   switch (action.type) {
-    case "SET_NFT":
+    case "SET_SONG":
       return {
         ...state,
         items: action.payload,
@@ -17,4 +17,4 @@ export default function nftReducer(state = defaultState, action) {
   }
 }
 
-export const setNft = (nft) => ({ type: SET_NFT, payload: nft });
+export const setSong = (song) => ({ type: SET_SONG, payload: song });
