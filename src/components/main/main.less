@@ -1,0 +1,26 @@
+.song-container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.fetching {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* исправлено с 100% на 50% для круглой формы */
+    margin: 30vh auto;
+    border: 2px dashed red;
+    animation-name: fetching;
+    animation-duration: 1s; /* длительность анимации */
+    animation-duration: alternate; /* Для возвращения анимации обратно */
+    animation-timing-function: linear; /* добавлено для плавности */
+    animation-iteration-count: infinite; /* добавлено для бесконечного повторения */
+}
+
+@keyframes fetching {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) scale(1.5);
+    }
+}

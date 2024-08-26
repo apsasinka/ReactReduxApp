@@ -1,11 +1,12 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const Dotenv = require('dotenv-webpack')
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
-    entry: ["@babel/polyfill", './src/index.tsx'],
+    entry: ["@babel/polyfill", './src/index.jsx'],
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].[hash].js"
@@ -13,7 +14,10 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({template: './src/index.html'}),
         new CleanWebpackPlugin(),
-        new Dotenv()
+        new Dotenv(),
+        new webpack.IgnorePlugin({
+            resourceRegExp: /typescript/
+        })
     ],
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -33,17 +37,12 @@ module.exports = {
                 use: ["file-loader"]
             },
             {
-                test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: 'ts-loader'  // Используем ts-loader для обработки TypeScript
-            },
-            {
-                test: /\.m?tsx$/,
+                test: /\.m?jsx$/,
                 exclude: /node_modules/,
                 use: {
                   loader: "babel-loader",
                   options: {
-                    presets: ['@babel/preset-env', "@babel/preset-react", "@babel/preset-typescript"]
+                    presets: ['@babel/preset-env', "@babel/preset-react"]
                   }
                 }
               }

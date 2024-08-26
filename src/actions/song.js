@@ -1,16 +1,31 @@
-import { setSong } from "../reducers/songReducer";
+import { setIsFetching, setSearchSong, setSong } from "../reducers/songReducer";
 import { axiosInstance } from "../instance";
 
 export const getSong = () => {
   return async (dispatch) => {
     try {
+      dispatch(setIsFetching(true));
       const res = await axiosInstance.get(
-        "/v1/tracks?ids=7ouMYWpwJ422jRcDASZB7P,4VqPOruhp5EdPBeR92t6lQ,2takcwOaAZWiXQijPHIx7B"
+        "/v1/me/tracks"
       );
-      console.log("Full Response:", res.data.tracks);
-      dispatch(setSong(res.data.tracks));
+      dispatch(setSong(res.data.items));
     } catch (error) {
       console.error("Failed to fetch songs:", error);
     }
   };
 };
+
+export const searchSong = (idSong) => {
+  return async (dispatch) => {
+    try {
+      dispatch(setIsFetching(true));
+      const res = await axiosInstance.get(
+        `/v1/recommendations?seed_tracks=${idSong}`
+      );
+      console.log(res.data);
+      dispatch(setSearchSong(res.data.tracks));
+    } catch (e) {
+      console.error("Failed to search songs: ", e)
+    }
+  }
+}

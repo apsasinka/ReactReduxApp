@@ -31,7 +31,7 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    const token = await getSpotifyToken();
+    const token = localStorage.getItem('spotify_token');
     config.headers.Authorization = `Bearer ${token}`;
     return config;
   },

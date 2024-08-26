@@ -1,4 +1,6 @@
 const SET_SONG = "SET_SONG";
+const SET_IS_FETCHING = "SET_IS_FETCHING";
+const SET_SEARCH_SONG = 'SET_SEARCH_SONG';
 
 const defaultState = {
   items: [],
@@ -11,7 +13,19 @@ const songReducer = (state = defaultState, action) => {
       return {
         ...state,
         items: action.payload,
+        isFetching: false,
       };
+      case SET_IS_FETCHING:
+        return {
+          ...state,
+          bool: true,
+        };
+      case SET_SEARCH_SONG:
+        return {
+          ...state,
+          items: action.payload,
+          isFetching: false,
+        };
     default:
       return state;
   }
@@ -20,3 +34,5 @@ const songReducer = (state = defaultState, action) => {
 export default songReducer;
 
 export const setSong = (song) => ({ type: SET_SONG, payload: song });
+export const setSearchSong = (song) => ({ type: SET_SEARCH_SONG, payload: song });
+export const setIsFetching = (bool) => ({ type: SET_IS_FETCHING, payload: bool }); //будет отображать статус запроса
