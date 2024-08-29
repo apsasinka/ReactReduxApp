@@ -20,7 +20,7 @@ const songReducer = (state = defaultState, action) => {
       case SET_IS_FETCHING:
         return {
           ...state,
-          bool: true,
+          isFetching: action.payload,
         };
       case SET_SEARCH_SONG:
         return {

@@ -29,7 +29,7 @@ const Main = () => {
     <div className="song-container">
       <SpotifyAuth />
       {areSongsDifferent && (
-        <button onClick={handleResetSongs}>Вернуться к оригинальным трекам</button>
+        <button className="song-return" onClick={handleResetSongs}>Вернуться к оригинальным трекам</button>
       )}
       {isFetching && (<div className="fetching"></div>)}
       {!isFetching && songs.map((item) => (

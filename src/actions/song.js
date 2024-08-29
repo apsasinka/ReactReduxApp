@@ -22,7 +22,6 @@ export const searchSong = (idSong) => {
       const res = await axiosInstance.get(
         `/v1/recommendations?seed_tracks=${idSong}`
       );
-      console.log(res.data);
       dispatch(setSearchSong(res.data.tracks));
     } catch (e) {
       console.error("Failed to search songs: ", e)
