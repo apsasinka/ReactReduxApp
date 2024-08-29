@@ -11,7 +11,6 @@ const Song = (props) => {
   const handleSearchClick = () => {
     if (song && song.id) {
       props.searchSong(song.id);
-      console.log(song.id);
     }
   }; 
 
