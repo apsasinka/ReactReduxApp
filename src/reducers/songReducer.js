@@ -4,6 +4,7 @@ const SET_SEARCH_SONG = 'SET_SEARCH_SONG';
 
 const defaultState = {
   items: [],
+  originalItems: [],
   isFetching: true,
 };
 
@@ -13,6 +14,7 @@ const songReducer = (state = defaultState, action) => {
       return {
         ...state,
         items: action.payload,
+        originalItems: state.originalItems.length ? state.originalItems : action.payload,
         isFetching: false,
       };
       case SET_IS_FETCHING:
