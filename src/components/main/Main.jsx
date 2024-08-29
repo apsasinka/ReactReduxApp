@@ -18,14 +18,12 @@ const Main = () => {
     dispatch(searchSong(id))
   }
 
-  console.log(songs);
-
   return (
     <div className="song-container">
       <SpotifyAuth />
       {isFetching && (<div className="fetching"></div>)}
       {!isFetching && songs.map((item) => (
-        <Song  item={item} searchSong={(songId) => fetchSong(songId)} />
+        <Song key={item.track ? item.track.id : item.id} item={item.track ? item.track : item} searchSong={(songId) => fetchSong(songId)} />
       ))}
     </div>
   );

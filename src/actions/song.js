@@ -8,7 +8,7 @@ export const getSong = () => {
       const res = await axiosInstance.get(
         "/v1/me/tracks"
       );
-      dispatch(setSong(res.data.items));
+      dispatch(setSong(res.data.items));      
     } catch (error) {
       console.error("Failed to fetch songs:", error);
     }

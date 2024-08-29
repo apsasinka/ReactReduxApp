@@ -9,24 +9,23 @@ const Song = (props) => {
   };  
 
   const handleSearchClick = () => {
-    if (song.track && song.track.id) {
-      props.searchSong(song.track.id);
-      console.log(song.track.id);
-      
+    if (song && song.id) {
+      props.searchSong(song.id);
+      console.log(song.id);
     }
-  };
+  }; 
 
   return (
     <div className="song">
       <div className="song-header">
-        <div className="song-header-name">{song.track.name}</div>
-        <div className="song-header-popularity">{song.track.popularity}</div>
+        <div className="song-header-name">{song.name}</div>
+        <div className="song-header-popularity">{song.popularity}</div>
       </div>
       <div className="song-artists">
-        {formatArtists(song.track.artists)}
+        {formatArtists(song.artists)}
       </div>
       <button className="song-search" onClick={handleSearchClick} >Поиск по треку</button>
-      {song.track.preview_url ? <audio className="song-audio" controls src={song.track.preview_url}></audio> : <a href={song.track.href}>Прослушать на площадке</a>}
+      {song.preview_url ? <audio className="song-audio" controls src={song.preview_url}></audio> : <a href={song.href}>Прослушать на площадке</a>}
     </div>
   );
 };
