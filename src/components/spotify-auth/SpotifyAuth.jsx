@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setIsFetching } from '../../reducers/songReducer';
+import './spotifyAuth.less'
 
 const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
 const redirectUri = process.env.REACT_APP_REDIRECT_URI;
@@ -34,11 +35,11 @@ const SpotifyAuth = () => {
   };
 
   return (
-    <div>
+    <div className='auth-container'>
       {!token ? (
-        <button onClick={handleLogin}>Login with Spotify</button>
+        <button className='btn' onClick={handleLogin}>Login with Spotify</button>
       ) : (
-          <button onClick={handleLogout}>Logout</button>
+          <button className='btn' onClick={handleLogout}>Logout</button>
       )}
     </div>
   );

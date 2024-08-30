@@ -11,7 +11,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
   return (
     <div className='pagination'>
         {pageNumbers.map(page => (
-            <button key={page} className={`pagination btn ${currentPage === page ? 'active' : ''}`} onClick={() => paginate(page)} >{page}</button>
+            <button key={page} className={`page-btn ${currentPage === page ? 'active' : ''}`} onClick={() => paginate(page)} >{page}</button>
         ))}
     </div>
   )

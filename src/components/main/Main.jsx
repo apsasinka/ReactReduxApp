@@ -41,10 +41,10 @@ const Main = () => {
 
   return (
     <>
+    <SpotifyAuth />
     <div className="song-container">
-      <SpotifyAuth />
       {areSongsDifferent && (
-        <button className="song-return" onClick={handleResetSongs}>Вернуться к любимым трекам</button>
+        <button className="btn" onClick={handleResetSongs}>Вернуться к любимым трекам</button>
       )}
       {isFetching && (<div className="fetching"></div>)}
       {!isFetching && currentItems.map((item) => (
