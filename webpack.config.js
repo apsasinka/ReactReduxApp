@@ -24,7 +24,8 @@ module.exports = {
     },    
     devServer: {
         port: 3000,
-        static: "./src"
+        static: "./src",
+        historyApiFallback: true,
     },
     module: {
         rules: [
