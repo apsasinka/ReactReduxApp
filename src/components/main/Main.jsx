@@ -4,6 +4,7 @@ import Song from "../song/Song";
 import { getSong, searchSong } from "../../actions/song";
 import { useDispatch, useSelector } from "react-redux";
 import SpotifyAuth from "../spotify-auth/SpotifyAuth";
+import Pagination from "../pagination/Pagination";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Main = () => {
   const areSongsDifferent = JSON.stringify(songs) !== JSON.stringify(originalSongs);
 
   return (
+    <>
     <div className="song-container">
       <SpotifyAuth />
       {areSongsDifferent && (
@@ -36,6 +38,8 @@ const Main = () => {
         <Song key={item.track ? item.track.id : item.id} item={item.track ? item.track : item} searchSong={(songId) => fetchSong(songId)} />
       ))}
     </div>
+    <Pagination />
+    </>
   );
 };
 
