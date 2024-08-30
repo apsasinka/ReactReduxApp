@@ -1,12 +1,17 @@
 import React from 'react';
 import "./pagination.less"
 
-const Pagination = () => {
-    const pageNumbers = [1, 2, 3, 4, 5];
+const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
+    const pageNumbers = [];
+
+    for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
   return (
     <div className='pagination'>
         {pageNumbers.map(page => (
-            <button key={page} className='pagination btn'>{page}</button>
+            <button key={page} className={`pagination btn ${currentPage === page ? 'active' : ''}`} onClick={() => paginate(page)} >{page}</button>
         ))}
     </div>
   )
