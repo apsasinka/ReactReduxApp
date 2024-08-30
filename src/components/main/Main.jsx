@@ -51,7 +51,7 @@ const Main = () => {
         <Song key={item.track ? item.track.id : item.id} item={item.track ? item.track : item} searchSong={(songId) => fetchSong(songId)} />
       ))}
     </div>
-    <Pagination itemsPerPage={itemsPerPage} totalItems={songs.length} paginate={handlePaginate} currentPage={currentPage} />
+    {!isFetching && <Pagination itemsPerPage={itemsPerPage} totalItems={songs.length} paginate={handlePaginate} currentPage={currentPage} />}
     </>
   );
 };
