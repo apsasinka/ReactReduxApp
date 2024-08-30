@@ -1,5 +1,6 @@
 import React from "react";
 import "./song.less";
+import { NavLink } from "react-router-dom";
 
 const Song = (props) => {
   const song = props.item;
@@ -17,7 +18,9 @@ const Song = (props) => {
   return (
     <div className="song">
       <div className="song-header">
-        <div className="song-header-name">{song.name}</div>
+        <div>
+          <NavLink to="song" className="song-header-name">{song.name}</NavLink>
+        </div>
         <div className="song-header-popularity">{song.popularity}</div>
       </div>
       <div className="song-artists">
