@@ -1,13 +1,10 @@
 import React from "react";
 import "./song.less";
 import { NavLink } from "react-router-dom";
+import { formatArtists } from "../../utils/formatArtists";
 
 const Song = (props) => {
   const song = props.item;
-
-  const formatArtists = (artists) => {
-    return artists.map(artist => artist.name).join(', ');
-  };  
 
   const handleSearchClick = () => {
     if (song && song.id) {

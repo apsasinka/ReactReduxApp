@@ -18,8 +18,7 @@ export const getSongs = () => {
 export const getTrack = async (id, setTrack) => {
   try {
     const res = await axiosInstance.get(`/v1/tracks/${id}`);
-    console.log(res);
-    setTrack(res.data);
+    if (res && res.data) setTrack(res.data);
   } catch (error) {
     console.error("Failed to fetch song:", error);
   }
