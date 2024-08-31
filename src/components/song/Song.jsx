@@ -19,7 +19,7 @@ const Song = (props) => {
     <div className="song">
       <div className="song-header">
         <div>
-          <NavLink to="song" className="song-header-name">{song.name}</NavLink>
+          <NavLink to={`song/${song.name}/${formatArtists(song.artists)}`} className="song-header-name">{song.name}</NavLink>
         </div>
         <div className="song-header-popularity">{song.popularity}</div>
       </div>

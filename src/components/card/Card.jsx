@@ -1,9 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const Card = () => {
     const navigate = useNavigate();
+    const {name, artist} = useParams();
 
+    console.log(name, artist);
+    
     const handleRedirect = () => {
         navigate('/');
     }
