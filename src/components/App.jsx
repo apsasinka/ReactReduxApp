@@ -2,7 +2,7 @@ import React from "react";
 import "./app.less";
 import { Route, Routes } from "react-router-dom";
 import Main from "./main/Main";
-import { Card } from "./card/Card";
+import Card from "./card/Card";
 import ErrorPage from "./errorPage/ErrorPage";
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
     <div className="container">
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/song/:name/:artist" element={<Card />} />
+          <Route path="/song/:id" element={<Card />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
     </div>

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { getTrack } from '../../actions/song';
 
-export const Card = () => {
+const Card = () => {
     const navigate = useNavigate();
-    const {name, artist} = useParams();
+    const {id} = useParams();
+    const [track, setTrack] = useState();
 
-    console.log(name, artist);
-    
     const handleRedirect = () => {
         navigate('/');
     }
+
+    useEffect(() => {
+      getTrack(id, setTrack)
+    }, [])
+    
+    console.log(track);
     
   return (
     <>
@@ -18,3 +24,5 @@ export const Card = () => {
     </>
   )
 }
+
+export default Card;

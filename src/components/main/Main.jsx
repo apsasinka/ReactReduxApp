@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./main.less";
 import Song from "../song/Song";
-import { getSong, searchSong } from "../../actions/song";
+import { getSongs, searchSong } from "../../actions/song";
 import { useDispatch, useSelector } from "react-redux";
 import SpotifyAuth from "../spotify-auth/SpotifyAuth";
 import Pagination from "../pagination/Pagination";
@@ -18,7 +18,7 @@ const Main = () => {
   const currentItems = paginate(songs, currentPage, itemsPerPage);
 
   useEffect(() => {
-    dispatch(getSong());
+    dispatch(getSongs());
   }, []);
 
   const fetchSong = (id) => {

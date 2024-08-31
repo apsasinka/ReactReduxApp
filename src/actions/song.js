@@ -1,7 +1,7 @@
 import { setIsFetching, setSearchSong, setSong } from "../reducers/songReducer";
 import { axiosInstance } from "../instance";
 
-export const getSong = () => {
+export const getSongs = () => {
   return async (dispatch) => {
     try {
       dispatch(setIsFetching(true));
@@ -13,6 +13,16 @@ export const getSong = () => {
       console.error("Failed to fetch songs:", error);
     }
   };
+};
+
+export const getTrack = async (id, setTrack) => {
+  try {
+    const res = await axiosInstance.get(`/v1/tracks/${id}`);
+    console.log(res);
+    setTrack(res.data);
+  } catch (error) {
+    console.error("Failed to fetch song:", error);
+  }
 };
 
 export const searchSong = (idSong) => {
